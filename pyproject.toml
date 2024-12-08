@@ -1,5 +1,5 @@
 [project]
-name = "Viana Labs"
+name = "VianaLabs"
 version = "0.1.0"
 description = "Official repository of Viana Labs, a web development agency based in Portugal, specializing in modern and responsive digital solutions."
 readme = "README.md"
@@ -11,15 +11,21 @@ dependencies = [
     "flask",
 ]
 
+[project.optional-dependencies]
+test = [
+    "flake8",
+    "black",
+    "isort",
+    "pytest",
+]
 
 [tool.flake8]
 exclude = [".venv", "build"]
 max-line-length = 79
-# extend-ignore = "W293,"
 
 [tool.black]
 line-length = 79
-target-version = ["py36", "py37"]
+target-version = ["py38", "py310"]
 exclude = '''
 /(
     \.eggs
@@ -34,8 +40,8 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-src_paths = ["dundie", "tests", "integration"]
-multi_line_output = 3  # VHI
+src_paths = ["app"]
+multi_line_output = 3
 line_length = 79
 force_grid_wrap = 0
 use_parentheses = true
